@@ -41,7 +41,7 @@ section h1 {
 #container {
 	margin: 0 auto;
 	padding: 30px;
-	width: 250px;
+	width: 300px;
 	text-align: center;
 	background: rgba(0, 0, 0, 0.6);
 	color: #FFF;
@@ -58,7 +58,7 @@ section h1 {
 
 #container dl dt {
 	float: left;
-	width: 55%;
+	width: 45%;
 	text-align: right;
 }
 
