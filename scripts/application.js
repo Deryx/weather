@@ -8,11 +8,19 @@ $(function() {
 			
 			var jsonText = 'http://api.openweathermap.org/data/2.5/weather?lat=' + latitude + '&lon=' + longitude + '&appid=2de143494c0b295cca9337e1e96b00e0';
 			$.getJSON(jsonText, function(json) {
+				var country = json.sys.country;
+				console.log(country);
 				var measurementSystem = "imperial";
+				$('#system').text('to metric');
+				if (country !== "US") {
+					measurementSystem = "metric";
+					$('#system').text('to imperial');
+				}
 				var cityName = json.name;
 				var condition = json.weather[0].main;
 				var kelvin = json.main.temp;
-				var windGust = json.wind.gust;
+				var windGust = json.wind.speed;
+				console.log(windGust);
 				var humidity = json.main.humidity;
 				
 				$('#city').html(cityName);
@@ -44,7 +52,7 @@ $(function() {
 						$('#system').text('to imperial');
 						measurementSystem = "imperial";
 						$('#temp').html(celsius.toFixed() + "&#176; C");
-						$('#wind').html(metricGust.toFixed() + " kmh");
+						$('#wind').html(metricGust.toFixed() + " kph");
 					} else {
 						$('#system').text('to metric');
 						measurementSystem = "metric";
