@@ -25,7 +25,7 @@ $(function() {
 				
 				$('#city').html(cityName);
 				$('#weather').html(condition);
-				$('#humidity').html(humidity);
+				$('#humidity').html(humidity + "&#37;");
 				
 				if (condition === "Clear")
 					$('body').css({'background-size': 'cover', 'background-image': 'url(images/clear.jpg)', 'background-repeat': 'no-repeat'});
